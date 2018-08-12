@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "555936527481",
+    "firebase_url": "https://songchurchapplication.firebaseio.com",
+    "project_id": "songchurchapplication",
+    "storage_bucket": "songchurchapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555936527481:android:172d9355bf00a4dd",
+        "android_client_info": {
+          "package_name": "com.example.cld.songchurchapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555936527481-e4n46sti035iu5je9d0kkt4r3tn8392e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cld.songchurchapplication",
+            "certificate_hash": "023650b13d1334ce3cef53f1af098afa9797fd3b"
+          }
+        },
+        {
+          "client_id": "555936527481-m3j3kp04d0gemmqn7kn827bua3eg1i03.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cld.songchurchapplication",
+            "certificate_hash": "4bfc47bb1bffaf2c0f5bcd9bb499f8d746051cb2"
+          }
+        },
+        {
+          "client_id": "555936527481-444a6cm6d4uno08oe8co62k7tb4s8cep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ6Dc6MYHVtMoni7vz4pbTv8L469_-k08"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555936527481-444a6cm6d4uno08oe8co62k7tb4s8cep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
