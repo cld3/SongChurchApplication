@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.firebase.auth.FirebaseUser
 import android.content.Intent
 import android.util.Log
+import com.example.cld.songchurchapplication.App
 import com.example.cld.songchurchapplication.R
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import kotlinx.android.synthetic.main.activity_signin.*
+import javax.inject.Inject
 
 
 class SignInActivity : AppCompatActivity() {
@@ -21,13 +23,16 @@ class SignInActivity : AppCompatActivity() {
     private val TAG = "authScreen"
     private val RC_SIGN_IN = 9001
 
-    private lateinit var mAuth: FirebaseAuth
+    @Inject
+    lateinit var mAuth: FirebaseAuth
 
     private var mGoogleSignInClient: GoogleSignInClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
+
+        (application as App).dataComponent.inject(this)
 
         // Button listeners
         sign_in_button.setOnClickListener { signIn() }
@@ -39,7 +44,7 @@ class SignInActivity : AppCompatActivity() {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        mAuth = FirebaseAuth.getInstance()
+        //mAuth = FirebaseAuth.getInstance()
     }
 
     public override fun onStart() {
