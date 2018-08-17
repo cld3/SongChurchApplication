@@ -1,6 +1,8 @@
 package com.example.cld.songchurchapplication.di
 
 
+import com.example.cld.songchurchapplication.dataLayer.Repository
+import com.example.cld.songchurchapplication.dataLayer.RepositoryImpl
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
@@ -21,5 +23,11 @@ class DataModule {
     fun getFirebaseAuth(): FirebaseAuth{
         return FirebaseAuth.getInstance()
     }
+/*
+    @Singleton
+    @Provides
+    fun getRepository(): Repository{
+        return RepositoryImpl()
+    }*/
 
 }

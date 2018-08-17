@@ -7,6 +7,8 @@ import android.content.Intent
 import android.util.Log
 import com.example.cld.songchurchapplication.App
 import com.example.cld.songchurchapplication.R
+import com.example.cld.songchurchapplication.churchSelect.ChurchSelectActivity
+import com.example.cld.songchurchapplication.dataLayer.RepositoryImpl
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
@@ -67,7 +69,7 @@ class SignInActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account)
             } catch (e: ApiException) {
                 Log.e(TAG, "Google sign in failed", e)
-                updateUserInfo(null)
+                //updateUserInfo(null)
             }
 
         }
@@ -94,28 +96,30 @@ class SignInActivity : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    private fun signOut() {
+   /* private fun signOut() {
         // Firebase sign out
         mAuth!!.signOut()
 
         // Google sign out
         mGoogleSignInClient!!.signOut().addOnCompleteListener(this
         ) { updateUserInfo(null) }
-    }
+    }*/
 
-    private fun revokeAccess() {
+    /*private fun revokeAccess() {
         // Firebase sign out
         mAuth!!.signOut()
 
         // Google revoke access
         mGoogleSignInClient!!.revokeAccess().addOnCompleteListener(this
         ) { updateUserInfo(null) }
-    }
+    }*/
 
     private fun updateUserInfo(user: FirebaseUser?) {
         if (user != null) {
             Log.e(TAG, user.email)
             Log.e(TAG, user.uid)
+            startActivity(Intent(this,ChurchSelectActivity::class.java))
+            finish()
         }
     }
 
