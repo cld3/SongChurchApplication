@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signIn.SignInActivity"></activity>
+        <activity android:name=".signIn.SignInActivity" />
+        <activity android:name=".churchSelect.ChurchSelectActivity"></activity>
     </application>
 
 </manifest>
