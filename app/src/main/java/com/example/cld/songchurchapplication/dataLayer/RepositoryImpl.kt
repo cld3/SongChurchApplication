@@ -21,8 +21,7 @@ class RepositoryImpl {
                         churches.add(ChurchModel(
                                 document.id,
                                 document["name"].toString(),
-                                document["city"].toString(),
-                                worshipGroup
+                                document["city"].toString()
                         ))
                     }
                 }
@@ -47,8 +46,7 @@ class RepositoryImpl {
                         val christians = getChristians(document.reference.path)
                         worshipGroups.add(WorshipGroupModel(
                                 document.id,
-                                document["name"].toString(),
-                                christians
+                                document["name"].toString()
                         ))
                     }
                 }
@@ -72,10 +70,14 @@ class RepositoryImpl {
                         Log.d("qq", "christians $document")
                         christians.add(ChristianModel(
                                 document.id,
+                                document["churchId"].toString(),
+                                document["worshipGroupId"].toString(),
                                 document["name"].toString(),
                                 document["surname"].toString(),
                                 document["email"].toString(),
-                                document["imageUrl"].toString()))
+                                document["phoneNumber"].toString(),
+                                document["imageUrl"].toString()
+                        ))
                     }
                 }
         return christians
@@ -84,10 +86,13 @@ class RepositoryImpl {
     fun addChristians(worshipPath: String, christian: ChristianModel) {
         firestore.collection("$worshipPath/christians")
                 .add(mapOf(
+                        "churchId" to christian.name,
+                        "worshipGroupId" to christian.name,
                         "name" to christian.name,
                         "surname" to christian.surname,
                         "email" to christian.email,
+                        "phoneNumber" to christian.phoneNumber,
                         "imageUrl" to christian.imageUrl
-                        ))
+                ))
     }
 }
