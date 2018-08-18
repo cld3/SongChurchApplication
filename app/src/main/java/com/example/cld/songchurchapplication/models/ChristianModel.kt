@@ -5,6 +5,7 @@ data class ChristianModel(
         var name: String,
         var surname: String,
         var email: String,
-        var imageUrl: String
+        var imageUrl: String,
+        var phoneNumber: String
         ) {
 }
