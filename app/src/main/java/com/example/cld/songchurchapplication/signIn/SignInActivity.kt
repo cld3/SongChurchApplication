@@ -1,5 +1,6 @@
 package com.example.cld.songchurchapplication.signIn
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseUser
@@ -8,7 +9,6 @@ import android.util.Log
 import com.example.cld.songchurchapplication.App
 import com.example.cld.songchurchapplication.R
 import com.example.cld.songchurchapplication.churchSelect.ChurchSelectActivity
-import com.example.cld.songchurchapplication.dataLayer.RepositoryImpl
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
@@ -83,7 +83,16 @@ class SignInActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         val user = mAuth!!.currentUser
-                        updateUserInfo(user)
+                        with( getSharedPreferences(getString(R.string.shared_preferences_key), Context.MODE_PRIVATE)
+                                .edit()){
+                            putString(getString(R.string.user_id_key),user?.uid)
+                            putString(getString(R.string.user_displayName_key),user?.displayName)
+                            putString(getString(R.string.user_email_key),user?.email)
+                            putString(getString(R.string.user_phoneNumber_key),user?.phoneNumber)
+                            putString(getString(R.string.user_imageUrl_key),user?.photoUrl.toString())
+                            apply()
+                        }
+                        startActivity(Intent(this,ChurchSelectActivity::class.java))
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.e(TAG, "signInWithCredential:failure", task.exception)

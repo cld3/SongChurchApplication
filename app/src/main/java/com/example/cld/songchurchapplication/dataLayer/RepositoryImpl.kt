@@ -19,7 +19,7 @@ class RepositoryImpl {
                     for (document in it.documents) {
                         churches.add(ChurchModel(
                                 document.id,
-                                document["name"].toString(),
+                                document["displayName"].toString(),
                                 document["city"].toString()
                         ))
                     }
@@ -30,7 +30,7 @@ class RepositoryImpl {
     fun addChurch(church: ChurchModel) {
         firestore.collection("church")
                 .add(mapOf(
-                        "name" to church.name,
+                        "displayName" to church.name,
                         "city" to church.city
                 ))
     }
@@ -44,7 +44,7 @@ class RepositoryImpl {
                     for (document in it.documents) {
                         worshipGroups.add(WorshipGroupModel(
                                 document.id,
-                                document["name"].toString()
+                                document["displayName"].toString()
                         ))
                     }
                 }
@@ -55,7 +55,7 @@ class RepositoryImpl {
     fun addWorshipGroup(churchPath: String, worshipGroup: WorshipGroupModel) {
         firestore.collection("$churchPath/worshipGroup")
                 .add(mapOf(
-                        "name" to worshipGroup.name
+                        "displayName" to worshipGroup.name
                 ))
     }
 
@@ -70,7 +70,7 @@ class RepositoryImpl {
                                 document.id,
                                 document["churchId"].toString(),
                                 document["worshipGroupId"].toString(),
-                                document["name"].toString(),
+                                document["displayName"].toString(),
                                 document["surname"].toString(),
                                 document["email"].toString(),
                                 document["phoneNumber"].toString(),
@@ -84,9 +84,9 @@ class RepositoryImpl {
     fun addChristians(worshipPath: String, christian: ChristianModel) {
         firestore.collection("$worshipPath/christians")
                 .add(mapOf(
-                        "churchId" to christian.name,
-                        "worshipGroupId" to christian.name,
-                        "name" to christian.name,
+                        "churchId" to christian.displayName,
+                        "worshipGroupId" to christian.displayName,
+                        "displayName" to christian.displayName,
                         "surname" to christian.surname,
                         "email" to christian.email,
                         "phoneNumber" to christian.phoneNumber,

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SongChurchApplication</string>
+    <string name="shared_preferences_key">com.example.cld.songchurchapplication.fjdsfndsfdsfdgfd</string>
+    <string name="user_id_key">user_id_key</string>
+    <string name="user_churchId_key">user_churchId_key</string>
+    <string name="user_worshipGroupId_key">user_worshipGroupId_key</string>
+    <string name="user_displayName_key">user_name_key</string>
+    <string name="user_surname_key">user_surname_key</string>
+    <string name="user_email_key">user_email_key</string>
+    <string name="user_phoneNumber_key">user_phoneNumber_key</string>
+    <string name="user_imageUrl_key">user_imageUrl_key</string>
 </resources>
