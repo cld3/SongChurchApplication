@@ -4,7 +4,7 @@ data class ChristianModel(
         var id: String,
         var churchId: String,
         var worshipGroupId: String,
-        var name: String,
+        var displayName: String,
         var surname: String,
         var email: String,
         var phoneNumber: String,
