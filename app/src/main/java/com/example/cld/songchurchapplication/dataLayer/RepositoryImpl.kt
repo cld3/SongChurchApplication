@@ -17,7 +17,6 @@ class RepositoryImpl {
                 .get()
                 .addOnSuccessListener {
                     for (document in it.documents) {
-                        val worshipGroup = getWorshipGroups(document.reference.path)
                         churches.add(ChurchModel(
                                 document.id,
                                 document["name"].toString(),
@@ -43,7 +42,6 @@ class RepositoryImpl {
                 .get()
                 .addOnSuccessListener {
                     for (document in it.documents) {
-                        val christians = getChristians(document.reference.path)
                         worshipGroups.add(WorshipGroupModel(
                                 document.id,
                                 document["name"].toString()
