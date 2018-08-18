@@ -3,8 +3,7 @@ package com.example.cld.songchurchapplication
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.cld.songchurchapplication.signIn.SignInActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.cld.songchurchapplication.ui.signIn.SignInActivity
 
 class MainActivity : AppCompatActivity() {
 

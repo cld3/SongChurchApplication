@@ -1,4 +1,4 @@
-package com.example.cld.songchurchapplication.signIn
+package com.example.cld.songchurchapplication.ui.signIn
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
@@ -8,7 +8,7 @@ import android.content.Intent
 import android.util.Log
 import com.example.cld.songchurchapplication.App
 import com.example.cld.songchurchapplication.R
-import com.example.cld.songchurchapplication.churchSelect.ChurchSelectActivity
+import com.example.cld.songchurchapplication.ui.churchSelect.ChurchSelectActivity
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException

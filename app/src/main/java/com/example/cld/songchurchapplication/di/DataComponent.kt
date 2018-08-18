@@ -1,6 +1,6 @@
 package com.example.cld.songchurchapplication.di
 
-import com.example.cld.songchurchapplication.signIn.SignInActivity
+import com.example.cld.songchurchapplication.ui.signIn.SignInActivity
 import dagger.Component
 import javax.inject.Singleton
 
