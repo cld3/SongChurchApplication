@@ -5,13 +5,12 @@ import com.example.cld.songchurchapplication.models.ChristianModel
 import com.example.cld.songchurchapplication.models.ChurchModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.cld.songchurchapplication.models.WorshipGroupModel
+import javax.inject.Inject
 
 
-class RepositoryImpl {
+class RepositoryImpl (var firestore: FirebaseFirestore): Repository {
 
-    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-
-    fun getChurches(): List<ChurchModel> {
+    override fun getChurches(): List<ChurchModel> {
         val churches = mutableListOf<ChurchModel>()
         firestore.collection("church")
                 .get()
@@ -27,7 +26,7 @@ class RepositoryImpl {
         return churches
     }
 
-    fun addChurch(church: ChurchModel) {
+    override fun addChurch(church: ChurchModel) {
         firestore.collection("church")
                 .add(mapOf(
                         "displayName" to church.name,
@@ -36,7 +35,7 @@ class RepositoryImpl {
     }
 
 
-    fun getWorshipGroups(churchPath: String): List<WorshipGroupModel> {
+    override fun getWorshipGroups(churchPath: String): List<WorshipGroupModel> {
         val worshipGroups = mutableListOf<WorshipGroupModel>()
         firestore.collection("$churchPath/worshipGroup")
                 .get()
@@ -52,14 +51,14 @@ class RepositoryImpl {
     }
 
 
-    fun addWorshipGroup(churchPath: String, worshipGroup: WorshipGroupModel) {
+    override fun addWorshipGroup(churchPath: String, worshipGroup: WorshipGroupModel) {
         firestore.collection("$churchPath/worshipGroup")
                 .add(mapOf(
                         "displayName" to worshipGroup.name
                 ))
     }
 
-    fun getChristians(worshipGroupPath: String): List<ChristianModel> {
+    override fun getChristians(worshipGroupPath: String): List<ChristianModel> {
         val christians = mutableListOf<ChristianModel>()
         firestore.collection("$worshipGroupPath/christians")
                 .get()
@@ -81,7 +80,7 @@ class RepositoryImpl {
         return christians
     }
 
-    fun addChristians(worshipPath: String, christian: ChristianModel) {
+    override fun addChristians(worshipPath: String, christian: ChristianModel) {
         firestore.collection("$worshipPath/christians")
                 .add(mapOf(
                         "churchId" to christian.displayName,

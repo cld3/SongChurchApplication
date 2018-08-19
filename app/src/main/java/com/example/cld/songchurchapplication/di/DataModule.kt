@@ -20,14 +20,13 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun getFirebaseAuth(): FirebaseAuth{
+    fun getFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
-/*
+
     @Singleton
     @Provides
-    fun getRepository(): Repository{
-        return RepositoryImpl()
-    }*/
-
+    fun getRepository(firestore: FirebaseFirestore): Repository {
+        return RepositoryImpl(firestore)
+    }
 }
